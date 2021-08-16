@@ -62,7 +62,8 @@ INSTALLED_APPS = [
     "theme",
     # local
     "accounts",
-    "things",
+    "items",
+    "front_end",
 ]
 
 MIDDLEWARE = [
@@ -152,6 +153,10 @@ USE_TZ = True
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
+STATICFILES_DIRS = [# this links tailwind, dont forget this
+    BASE_DIR / "theme" / "static",
+]
+
 AUTH_USER_MODEL = "accounts.CustomUser"
 
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
@@ -174,3 +179,6 @@ TAILWIND_APP_NAME = 'theme'
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
+
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
