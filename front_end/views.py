@@ -1,4 +1,4 @@
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 from items.models import Item
 
@@ -12,4 +12,8 @@ from accounts.forms import CustomUserCreationForm
 
 class ItemListView(ListView):
   template_name = "items.html"
+  model = Item
+  
+class ItemDetailView(DetailView):
+  template_name = "item_detail.html"
   model = Item
